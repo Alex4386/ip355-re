@@ -1,4 +1,5 @@
 # MOIMSTONE IP355 - Reverse Engineering
+![image](https://user-images.githubusercontent.com/27724108/189268814-a558de9a-d8ed-4d26-b40a-c868591d8ba5.png)
 "프로그래머 아님" + "해커 아님" + "정보보안 알못" 의 모임스톤 IP355 역공학 "유사" 라이트업
 
 ## 하게 된 이유
