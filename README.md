@@ -76,10 +76,11 @@ DPDK? 이건 kernel 에서 패킷 다이렉트로 가져올 때 쓰는 거잖아
 ### Broadcom FileSystem을 찾아서. (Part 2. 모든 것을 Micro$oft 에 맡긴 "김명자 낙지마당")
 그래도 희망을 저버리고 싶진 않다. 적어도 난 [ghidra](https://github.com/NationalSecurityAgency/ghidra-sre) 에서 MIPS32 어셈블리 일일이 읽으면서 하고 싶진 않기 때문이다....  
 
+김명자 낙지마당에서는 GitHub Code Search 라고 코드를 왕창 뒤져볼 수 있는 무언가를 제공해준다. 이걸로 찾아보자.  
 ![image](https://user-images.githubusercontent.com/27724108/189506644-88d292c1-c305-455f-90a5-08a0982cf193.png)  
   
 즈에발 이라면서 bcmfs 와 BFS 키워드로 "모든것을 Micro$oft에 맡긴 김명자 낙지마당" 에게 물어봤다.  
-![image](https://user-images.githubusercontent.com/27724108/189506673-fc850f58-4583-44c3-9268-f2393c98944d.png)  
+<img src="https://user-images.githubusercontent.com/27724108/189506673-fc850f58-4583-44c3-9268-f2393c98944d.png" width="300"/>
 
 어? WRT? 이거 공유기 펌웨어 그런거 아님?  
 ![image](https://user-images.githubusercontent.com/27724108/189506741-376bfb1e-eb1c-4249-82e5-ec9a8df4e067.png)
