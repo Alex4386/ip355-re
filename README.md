@@ -36,10 +36,10 @@ Binwalk 최고라고 외치고 Big Endian 이라는 걸 알았다.
 WindRiver Systems **VxWorks** 5.5.1 with Moimstone customization. _(Analyzed with Binwalk)_    
 ![image](https://user-images.githubusercontent.com/27724108/189260078-55326dc4-95d2-4398-a823-31b474416deb.png)
 
-진짜 별거 없다. 그럼 안에 아까 위에서 봤던 LZMA를 뜯어봐야겠다.
+진짜 별거 없다. 그럼 안에 아까 위에서 봤던 LZMA를 뜯어봐야겠다.  
 ![image](https://user-images.githubusercontent.com/27724108/189267078-dceecf2f-d8a9-49e2-9871-ab8f5d372ac0.png)
 
-얼레? LZMA 파일 타입을 인식할 수 없댄다. 아까 binwalk 아웃풋을 한번 다시 봐보자.
+얼레? LZMA 파일 타입을 인식할 수 없댄다. 아까 binwalk 아웃풋을 한번 다시 봐보자.  
 ![image](https://user-images.githubusercontent.com/27724108/189265833-03215a33-2d7b-46c1-a2a2-3226029f98cc.png)
 
 체인로딩 될 코드가 시작되는 메모리 주소 치고 영 깔끔한 주소가 아니다. 0x400AC? 아무리 모임스톤쪽 개발자가 펌웨어 만들면서 "에이씨" 라고 외치고 싶다고 해도 메모리 주소를 이렇게 정하지는 않았을꺼라는 합리적인 추론을 해볼 수 있다.  
@@ -53,16 +53,15 @@ WindRiver Systems **VxWorks** 5.5.1 with Moimstone customization. _(Analyzed wit
 그래프를 보니 합리적인 의심은 확신으로 바뀌어 간다. 0x40000, 0x40000을 보자.  
 ![image](https://user-images.githubusercontent.com/27724108/189267473-8f7008b4-7d69-4f20-ad8e-57c1847d8e26.png)
 
-BFS 헤더? 파일이름??? 이건 대충봐도 파일시스템 구조 같아보인다.
+BFS 헤더? 파일이름??? 이건 대충봐도 파일시스템 구조 같아보인다.  
 ![image](https://user-images.githubusercontent.com/27724108/189267827-da23aa4b-40f4-4f45-b14c-1f497a51d296.png)
 
-그럼 로더쪽 펌웨어에서 파일시스템으로 grep 때려서 파일시스템 로딩하는 쪽 로그 string 이 있는지 찾아보자.
+그럼 로더쪽 펌웨어에서 파일시스템으로 grep 때려서 파일시스템 로딩하는 쪽 로그 string 이 있는지 찾아보자.  
 ![image](https://user-images.githubusercontent.com/27724108/189268128-b190f8e0-60ae-4e85-b6ff-bb3aa1388c36.png)
 
 b...cm...fs? 이게 뭐지? **B**road**c**o**m** **F**ile**S**ystem 인가?
 
-### Broadcom FileSystem을 찾아서..
-#### 구글링. 내가하긴 귀찮으니까.
+### Broadcom FileSystem을 찾아서. (Part 1. Google神)
 우선 이왕이면 내가 직접 구현하기는 싫으니 BFS (BCMFS) 관련 자료가 인터넷에 있는지 구글신께 제사를 지내봤다.  
 ![image](https://user-images.githubusercontent.com/27724108/189506484-be34639f-6887-4bda-bae7-3810eba179e5.png)  
 
@@ -74,7 +73,7 @@ DPDK? 이건 kernel 에서 패킷 다이렉트로 가져올 때 쓰는 거잖아
 
 ![image](https://user-images.githubusercontent.com/27724108/189506578-3008840d-433a-4c7c-ba66-728402138059.png)  
 
-#### GitHub Code Search (Preview)
+#### Broadcom FileSystem을 찾아서. (Part 2. 모든 것을 Micro$oft 에 맡긴 "김명자 낙지마당")
 그래도 희망을 저버리고 싶진 않다. 적어도 난 [ghidra](https://github.com/NationalSecurityAgency/ghidra-sre) 에서 MIPS32 어셈블리 일일이 읽으면서 하고 싶진 않기 때문이다....  
 
 ![image](https://user-images.githubusercontent.com/27724108/189506644-88d292c1-c305-455f-90a5-08a0982cf193.png)  
