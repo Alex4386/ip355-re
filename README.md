@@ -34,7 +34,7 @@ Estimated build date: 2012/02/20
 Binwalk 최고라고 외치고 Big Endian 이라는 걸 알았다.
 
 ### OS Loader
-WindRiver Systems **VxWorks** 5.5.1 with Moimstone customization. _(Analyzed with Binwalk)_    
+WindRiver Systems **VxWorks** 5.5.1 with Moimstone customization. _(Analyzed with Binwalk)_  (Possibly generated via Broadcom PhonexChange™)   
 ![image](https://user-images.githubusercontent.com/27724108/189260078-55326dc4-95d2-4398-a823-31b474416deb.png)
 
 진짜 별거 없다. 그럼 안에 아까 위에서 봤던 LZMA를 뜯어봐야겠다.  
